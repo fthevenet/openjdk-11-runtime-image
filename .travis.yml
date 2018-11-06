@@ -26,8 +26,8 @@ deploy:
   api_key: GITHUB_TOKEN
   file_glob: true
   file:
-    - *.zip
-    - *.tar.gz
+    - target/*.zip
+    - target/*.tar.gz
   skip_cleanup: true
   on:
     tags: true
