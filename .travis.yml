@@ -1,4 +1,4 @@
-language: java
+language: shell
 if: tag IS present
 os:
 - windows
