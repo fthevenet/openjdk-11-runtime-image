@@ -1,10 +1,6 @@
 version: '{build}'
 
 environment:
-  GITHUB_TOKEN:
-    secure: 4vpPlabt2OKA/pyJKSZUr3KJg8y0uJFnzf/kTmVUTCPIb9Q3fpjED+1LEXHYQ4UY
-  SCM_USERNAME:
-    secure: 8BjoFIdSfcFM5UNtivbS5w==
   APPVEYOR_RDP_PASSWORD:
     secure: 4amxfxphFUcpp60d9Q6gJg==
 
@@ -12,19 +8,21 @@ environment:
 init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
-
 install:
   - choco install openjdk
   - refreshenv
 
-branches:
-
-  only:
-
-  - master
-
 build_script:
 
 - ps: >-
+  if ($env.APPVEYOR_REPO_TAG -eq "true") {
+    mvn clean package  -P create-runtime-image-windows-x64,package-runtime-image
+  }
 
-    mvn clean deploy  -P create-runtime-image-windows-x64,package-runtime-image -V
+deploy:
+  provider: GitHub
+  auth_token:
+    secure: 4vpPlabt2OKA/pyJKSZUr3KJg8y0uJFnzf/kTmVUTCPIb9Q3fpjED+1LEXHYQ4UY
+  artifact: target\*.zip
+  on:
+    appveyor_repo_tag: true

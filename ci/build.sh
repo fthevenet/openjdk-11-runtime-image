@@ -7,7 +7,7 @@ else
     if [ "$TRAVIS_OS_NAME" == "osx" ]; then
         BUNDLE_OS_PROFILE="create-runtime-image-macos-x64,package-runtime-image"
     else
-         BUNDLE_OS_PROFILE=
+         BUNDLE_OS_PROFILE="create-runtime-image-windows-x64,package-runtime-image"
     fi
 fi
 

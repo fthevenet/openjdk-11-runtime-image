@@ -1,7 +1,7 @@
-language: shell
+language: java
 if: tag IS present
 os:
-- windows
+#- windows
 - linux
 - osx
 jdk:
