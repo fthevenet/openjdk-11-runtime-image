@@ -8,13 +8,14 @@ environment:
 init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
-install:
-  - choco install openjdk
-  - refreshenv
 
 build_script:
 
 - ps: >-
+  $ENV:JAVA_HOME="C:\Program Files\Java\jdk11"
+
+  $ENV:PATH=”$ENV:JAVA_HOME\bin;$ENV:PATH”
+
   if ($env.APPVEYOR_REPO_TAG -eq "true") {
     mvn clean package  -P create-runtime-image-windows-x64,package-runtime-image
   }

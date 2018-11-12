@@ -55,6 +55,7 @@
         <project.scm.id>${github.global.server}</project.scm.id>
         <skipDeploy>true</skipDeploy>
         <openjfx.scope>compile</openjfx.scope>
+        <openjfx.version>11.0.1</openjfx.version>
     </properties>
     <scm>
         <connection>scm:git:https://github.com/fthevenet/openjfx-11-runtime-image.git</connection>
@@ -105,7 +106,7 @@
                                 </goals>
                                 <configuration>
                                     <modulePath>
-                                        <path>${openjfx-runtime-image.deploy.openjfx.jmods.path}/javafx-jmods-11</path>
+                                        <path>${openjfx-runtime-image.deploy.openjfx.jmods.path}/javafx-jmods-${openjfx.version}</path>
                                     </modulePath>
                                     <modules>
                                         <!-- Common modules for all platforms -->
@@ -119,9 +120,12 @@
                                         <module>java.management</module>
                                         <module>java.rmi</module>
                                         <module>java.management.rmi</module>
+                                        <module>jdk.management.agent</module>
                                         <module>jdk.security.auth</module>
                                         <module>jdk.management</module>
+                                        <module>jdk.management.jfr</module>
                                         <module>jdk.zipfs</module>
+                                        <module>jdk.unsupported.desktop</module>
                                         <!-- Platform specific -->
                                         <module>jdk.crypto.mscapi</module>
                                     </modules>
@@ -180,7 +184,7 @@
                                 </goals>
                                 <configuration>
                                     <modulePath>
-                                        <path>${openjfx-runtime-image.deploy.openjfx.jmods.path}/javafx-jmods-11</path>
+                                        <path>${openjfx-runtime-image.deploy.openjfx.jmods.path}/javafx-jmods-${openjfx.version}</path>
                                     </modulePath>
                                     <modules>
                                         <!-- Common modules for all platforms -->
@@ -194,9 +198,12 @@
                                         <module>java.management</module>
                                         <module>java.rmi</module>
                                         <module>java.management.rmi</module>
+                                        <module>jdk.management.agent</module>
                                         <module>jdk.security.auth</module>
                                         <module>jdk.management</module>
+                                        <module>jdk.management.jfr</module>
                                         <module>jdk.zipfs</module>
+                                        <module>jdk.unsupported.desktop</module>
                                         <!-- Platform specific -->
                                     </modules>
                                     <compression>2</compression>
@@ -254,7 +261,7 @@
                                 </goals>
                                 <configuration>
                                     <modulePath>
-                                        <path>${openjfx-runtime-image.deploy.openjfx.jmods.path}/javafx-jmods-11</path>
+                                        <path>${openjfx-runtime-image.deploy.openjfx.jmods.path}/javafx-jmods-${openjfx.version}</path>
                                     </modulePath>
                                     <modules>
                                         <!-- Common modules for all platforms -->
@@ -268,9 +275,12 @@
                                         <module>java.management</module>
                                         <module>java.rmi</module>
                                         <module>java.management.rmi</module>
+                                        <module>jdk.management.agent</module>
                                         <module>jdk.security.auth</module>
                                         <module>jdk.management</module>
+                                        <module>jdk.management.jfr</module>
                                         <module>jdk.zipfs</module>
+                                        <module>jdk.unsupported.desktop</module>
                                         <!-- Platform specific -->
                                     </modules>
                                     <compression>2</compression>
