@@ -70,7 +70,7 @@
                 <openjfx-runtime-image.deploy.jdk>openjdk-11_windows-x64</openjfx-runtime-image.deploy.jdk>
                 <openjfx-runtime-image.deploy.format>zip</openjfx-runtime-image.deploy.format>
                 <openjfx-runtime-image.deploy.openjfx.jmods.path>${project.build.directory}/openjfx-${openjfx-runtime-image.deploy.jdk}</openjfx-runtime-image.deploy.openjfx.jmods.path>
-                <openjfx-runtime-image.deploy.openjfx.jmods.url>https://gluonhq.com/download/javafx-11-jmods-windows/</openjfx-runtime-image.deploy.openjfx.jmods.url>
+                <openjfx-runtime-image.deploy.openjfx.jmods.url>https://gluonhq.com/download/javafx-${openjfx.version}-jmods-windows/</openjfx-runtime-image.deploy.openjfx.jmods.url>
             </properties>
             <build>
                 <plugins>
@@ -88,7 +88,7 @@
                                     <url>${openjfx-runtime-image.deploy.openjfx.jmods.url}</url>
                                     <unpack>true</unpack>
                                     <outputDirectory>${openjfx-runtime-image.deploy.openjfx.jmods.path}</outputDirectory>
-                                    <outputFileName>javafx-11-jmods.zip</outputFileName>
+                                    <outputFileName>javafx-${openjfx.version}-jmods.zip</outputFileName>
                                 </configuration>
                             </execution>
                         </executions>
@@ -148,7 +148,7 @@
                 <openjfx-runtime-image.deploy.jdk>openjdk-11_linux-x64</openjfx-runtime-image.deploy.jdk>
                 <openjfx-runtime-image.deploy.format>tar.gz</openjfx-runtime-image.deploy.format>
                 <openjfx-runtime-image.deploy.openjfx.jmods.path>${project.build.directory}/openjfx-${openjfx-runtime-image.deploy.jdk}</openjfx-runtime-image.deploy.openjfx.jmods.path>
-                <openjfx-runtime-image.deploy.openjfx.jmods.url>https://gluonhq.com/download/javafx-11-jmods-linux/</openjfx-runtime-image.deploy.openjfx.jmods.url>
+                <openjfx-runtime-image.deploy.openjfx.jmods.url>https://gluonhq.com/download/javafx-${openjfx.version}-jmods-linux/</openjfx-runtime-image.deploy.openjfx.jmods.url>
             </properties>
             <build>
                 <plugins>
@@ -166,7 +166,7 @@
                                     <url>${openjfx-runtime-image.deploy.openjfx.jmods.url}</url>
                                     <unpack>true</unpack>
                                     <outputDirectory>${openjfx-runtime-image.deploy.openjfx.jmods.path}</outputDirectory>
-                                    <outputFileName>javafx-11-jmods.zip</outputFileName>
+                                    <outputFileName>javafx-${openjfx.version}-jmods.zip</outputFileName>
                                 </configuration>
                             </execution>
                         </executions>
@@ -225,7 +225,7 @@
                 <openjfx-runtime-image.deploy.jdk>openjdk-11_macos-x64</openjfx-runtime-image.deploy.jdk>
                 <openjfx-runtime-image.deploy.format>tar.gz</openjfx-runtime-image.deploy.format>
                 <openjfx-runtime-image.deploy.openjfx.jmods.path>${project.build.directory}/openjfx-${openjfx-runtime-image.deploy.jdk}</openjfx-runtime-image.deploy.openjfx.jmods.path>
-                <openjfx-runtime-image.deploy.openjfx.jmods.url>https://gluonhq.com/download/javafx-11-jmods-mac/</openjfx-runtime-image.deploy.openjfx.jmods.url>
+                <openjfx-runtime-image.deploy.openjfx.jmods.url>https://gluonhq.com/download/javafx-${openjfx.version}-jmods-mac/</openjfx-runtime-image.deploy.openjfx.jmods.url>
             </properties>
             <build>
                 <plugins>
@@ -243,7 +243,7 @@
                                     <url>${openjfx-runtime-image.deploy.openjfx.jmods.url}</url>
                                     <unpack>true</unpack>
                                     <outputDirectory>${openjfx-runtime-image.deploy.openjfx.jmods.path}</outputDirectory>
-                                    <outputFileName>javafx-11-jmods.zip</outputFileName>
+                                    <outputFileName>javafx-${openjfx.version}-jmods.zip</outputFileName>
                                 </configuration>
                             </execution>
                         </executions>
