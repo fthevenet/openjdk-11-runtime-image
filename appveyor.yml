@@ -7,6 +7,7 @@ environment:
 init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 build_script:
+-
   ps: |-
     $ENV:JAVA_HOME="C:\Program Files\Java\jdk11"
     $ENV:PATH="$ENV:JAVA_HOME\bin;$ENV:PATH;$ENV:WIX\bin"
@@ -14,6 +15,8 @@ build_script:
       mvn clean package  -P create-runtime-image-windows-x64,package-runtime-image
     }
 deploy:
+-
+  tag: $(APPVEYOR_REPO_TAG_NAME)
   provider: GitHub
   auth_token:
     secure: 4vpPlabt2OKA/pyJKSZUr3KJg8y0uJFnzf/kTmVUTCPIb9Q3fpjED+1LEXHYQ4UY
