@@ -1,21 +1,36 @@
-language: java
-if: tag IS present
+env:
+  global:
+  - REPO_TAG_NAME=$TRAVIS_TAG
+  - secure: sH9fhG7xsKMVf3vnFNH8bM902hG+AGLooDB0ZNBiTYl7/8VvmJxDKDNI+dMsf/xiZZdaS02uvAXOlVHaaGDeAlVz7wV24chcsTkxWmBqguMS/BSLrepM3Luucf0lhw5X4KAxGnyhmJKShM0+3Rh1FyCUWL7DO9vxJpTQYzR9wQ85+ta3+QHSa4i5Fa7tKgHJBj3q22FNPS8QT/4RCNor1AFERuBJaGXO1hAPaBUHA//lrPZJM/xP7VsM7aYRoLTZxL0ZtSS45VRFqmlf16I6Q/ATATSO786SsMFVOcuvVyi2UwsBivCZbEQGcct3YHDk5jj4MgDePD+FsNjmLhLGt/Wvx0peqwhuMTfcNC6otCVqmOrCoL4GbtYengllFkHqymzt+KQMNQ+AmWjorpb7Fl2JwmF9f2pPt3g7aFiDX/pJDWHOoi/XEFp6ppOwg6zsbb4wcwI8u7aX6Yuy1IkZg6jFfNibTV0u4XWGInxI1RsiSxvYdGiNkJgJdBkwcGr3m2j0HO6uP4iYZQIIkkVHhWZO84wm5V5wIfH8SE9oukVAjlu+msrAwjMVTjsjWxYWf/jelyMxl8bM3s5+cVGDmnuKgVOdvehWS10ltYhsSUoX7BpVscZ8g2538YeU+V9p1qZG5HEAmqezr1/XK3+liCW55ru0KCDZ0JyKtCQXJV4=
+
 os:
-#- windows
-- linux
-- osx
-jdk:
-- openjdk11
-sudo: false
-script: "./ci/build.sh"
+  - linux
+  - osx
+
+branches:
+  only:
+    - master
+    - /^v.*$/
+
+language: java
+install: true
+jdk: openjdk11
+
+script:
+  - if [ $TRAVIS_TAG == $TRAVIS_BRANCH ]; then export IS_TAG=true; else export IS_TAG=false; fi
+  - chmod +x gradlew
+  - ./gradlew packageDistribution
+
 deploy:
+  tag_name: $TRAVIS_TAG
   provider: releases
-  api_key:
-    secure: Av567sqYBUvpTumbpfVnKvs20XauwCmJzqDfenDGpjqq0G7JNhE4l1hPdZ8LmsTMZrm0fI09YwqFTFxHphj3oi8S6wv0tv7+n8ByVDLOzyyTnw6Pw9JYOLwjW8RNB9fY7WWHkG1vJkLuQakukMmO1jSBN8hbSb77CF8dEKcNB9OSSsjEfVQn9+b6mtTVJXHmq1q1kc+a/gbkFDFnTGUot8op3N+5XxXcDIc3EqiJ6JAicMPV94aSCuw7qgmrqF3ols0X402xs+OPWEPEB8PDBZ15DZxxKxfgD0AvuC2jnX+ijmd1yxctE4ziWDoT4xmRM3qE+R2JN3aY6RPaK/8hnEHIXe25DipqCVGS5P8btRQ0CK7x48LJolp8HLNPY390GL1BQ2VGSVA0LQwkSlp+LuQovvHxEcubhcw+We2Go0XWPOPp5Ce1CT8yQbFfQPsGjCiWoAC8Uueq3vsxs0dQPpjl+v5MHuIA74VEwzkZeZZYm9phJYqB4MAG0R3aDYy0xTJt6vmPVjKCcQO56kZWL29cBH9z4YcP7eo9FpZuQjMioawDXEU831FvrEAveXZFeYQ5Ufbr9DuhHzfhRF2w22fqPX0SjWBV2WuiPQdTX73qWZwG+pfcaBYkqF3dSfnvKaEiM4qe+glo9TSMuGmP+4huAmAdgUBe+h9w3I5RRLo=
+  api_key: $GITHUB_TOKEN
   file_glob: true
   file:
-  - target/*.zip
-  - target/*.tar.gz
+    - build/*.tar.gz
   skip_cleanup: true
   on:
     tags: true
+
+
+
