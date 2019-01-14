@@ -43,7 +43,7 @@ ext.JLINK_ADD_MODULES = "javafx.controls,javafx.fxml,javafx.swing,javafx.base,ja
                         "jdk.internal.vm.compiler.management,jdk.jartool,jdk.javadoc,jdk.jcmd,jdk.jconsole,jdk.jdeps,jdk.jdi,jdk.jdwp.agent,jdk.jfr,jdk.jlink,jdk.jshell,jdk.jsobject," +
                         "jdk.jstatd,jdk.localedata,jdk.management,jdk.management.agent,jdk.management.jfr,jdk.naming.dns,jdk.naming.rmi,jdk.net,jdk.pack,jdk.rmic,"+
                         "jdk.scripting.nashorn,jdk.scripting.nashorn.shell,jdk.sctp,jdk.security.auth,jdk.security.jgss,jdk.unsupported,jdk.unsupported.desktop,jdk.xml.dom,jdk.zipfs" +
-                        (IS_WINDOWS ? "jdk.crypto.mscapi" :"")
+                        (IS_WINDOWS ? ",jdk.crypto.mscapi" :"")
 ext.DISTRIBUTION_NAME = "${project.name}-${BUILD_VERSION}_${OS_FAMILY}-${OS_ARCH}"
 ext.DISTRIBUTION_PATH = "${buildDir}/distributions/${DISTRIBUTION_NAME}"
 ext.ARCHIVE_PATH = ""
