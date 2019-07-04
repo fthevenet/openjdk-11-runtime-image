@@ -35,13 +35,13 @@ jobs:
           jdkVersionOption: '1.12'
           jdkArchitectureOption: 'x64'
           publishJUnitResults: false
-          tasks: 'signPackageDistribution'
+          tasks: 'packageDistribution'
 
       - task: GithubRelease@0
         condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
         inputs:
-          gitHubConnection: binjr-bot
-          repositoryName: binjr/binjr
+          gitHubConnection: fthevenet
+          repositoryName: fthevenet/openjfx-runtime-image
           action: edit
           tag: $(Build.SourceBranchName)
           assets: |
