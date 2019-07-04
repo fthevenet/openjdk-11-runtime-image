@@ -80,7 +80,7 @@ task downloadAndUnzipFile(dependsOn: downloadopenJfxJmods, type: Copy) {
 task createRuntimeImage(type: Exec, dependsOn: [downloadAndUnzipFile]) {
     workingDir project.projectDir
     commandLine = [
-            'jlink',
+            "${JDK_HOME}/bin/jlink",
             '-p', "${JDK_HOME}/jmods${File.pathSeparator}${buildDir}/javafx-jmods-${OPENJFX_VERSION}",
             '--add-modules', JLINK_ADD_MODULES,
             '--strip-debug',
