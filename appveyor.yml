@@ -6,7 +6,7 @@ install:
   - ps: |-
       $ENV:IS_TAG=$ENV:APPVEYOR_REPO_TAG
       $ENV:REPO_TAG_NAME=$ENV:APPVEYOR_REPO_TAG_NAME
-      $ENV:JAVA_HOME="C:\Program Files\Java\jdk11"
+      $ENV:JAVA_HOME="C:\Program Files\Java\jdk12"
       $ENV:PATH="$ENV:JAVA_HOME\bin;$ENV:PATH;$ENV:WIX\bin"
       $ENV:BINJR_BUILD_NUMBER=$ENV:APPVEYOR_BUILD_NUMBER
 

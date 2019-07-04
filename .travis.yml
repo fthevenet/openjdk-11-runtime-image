@@ -13,7 +13,7 @@ branches:
 
 language: java
 install: true
-jdk: openjdk11
+jdk: openjdk12
 
 script:
   - if [ $TRAVIS_TAG == $TRAVIS_BRANCH ]; then export IS_TAG=true; else export IS_TAG=false; fi
