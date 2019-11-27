@@ -19,7 +19,7 @@ jobs:
           curl ${{ parameters.jdkDownloadUrl }} --output ${{ parameters.jdkFile }}
 
       - task: JavaToolInstaller@0
-          inputs:
+        inputs:
           versionSpec: "13"
           jdkArchitectureOption: x64
           jdkSourceOption: LocalDirectory
