@@ -25,23 +25,23 @@ jobs:
       pool:
         vmImage: 'ubuntu-16.04'
 
-      # MacOS app bundle job
-      - template: build-job.yml
-        parameters:
-          name: app_bundle_mac
-          platform: mac
-          jdkDownloadUrl: 'https://cdn.azul.com/zulu/bin/zulu14.27.1-ca-jdk14-macosx_x64.tar.gz'
-          jdkFile: $(Agent.TempDirectory)/jdk-latest-macosx_x64.tar.gz
-          pool:
-            vmImage: 'macOS-10.14'
+  # MacOS app bundle job
+  - template: build-job.yml
+    parameters:
+      name: app_bundle_mac
+      platform: mac
+      jdkDownloadUrl: 'https://cdn.azul.com/zulu/bin/zulu14.27.1-ca-jdk14-macosx_x64.tar.gz'
+      jdkFile: $(Agent.TempDirectory)/jdk-latest-macosx_x64.tar.gz
+      pool:
+        vmImage: 'macOS-10.14'
 
-      # Windows app bundle job
-      - template: build-job.yml
-        parameters:
-          name: app_bundle_windows
-          platform: win
-          jdkDownloadUrl: 'https://cdn.azul.com/zulu/bin/zulu14.27.1-ca-jdk14-win_x64.zip'
-          jdkFile: $(Agent.TempDirectory)/jdk-latest-win_x64.zip
-          pool:
-            vmImage: 'windows-2019'
+  # Windows app bundle job
+  - template: build-job.yml
+    parameters:
+      name: app_bundle_windows
+      platform: win
+      jdkDownloadUrl: 'https://cdn.azul.com/zulu/bin/zulu14.27.1-ca-jdk14-win_x64.zip'
+      jdkFile: $(Agent.TempDirectory)/jdk-latest-win_x64.zip
+      pool:
+        vmImage: 'windows-2019'
 
